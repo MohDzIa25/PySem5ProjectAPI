@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 import torch
 import io
-#from for_test_V20 import for_test
+from for_test_V20 import for_test
 
 app = Flask(__name__)
 
@@ -15,11 +15,7 @@ def preprocess_image(img):
     img_tensor = img_tensor.unsqueeze(0)
     img_tensor = img_tensor.unsqueeze(0)
     return img_tensor
-def for_test(img_tensor):
-    # Assume that for some reason, the img_tensor should be a list, but it's not.
-    attention = "Some attention values"
-    prediction = "Some values"
-    return attention, prediction
+
 
 def predict_expression(img_tensor):
     # Assuming for_test is defined and imported correctly
@@ -40,7 +36,7 @@ def predict_expression(img_tensor):
         # Handle the exception, you can print an error message or log it.
         # In this example, I'm just printing the exception message.
         # print(f"An error occurred ABC: {str(e)}")
-        prediction_string = 'CUDA supported Device Needed'
+        prediction_string = str(e)
 
     return prediction_string
 
@@ -62,7 +58,7 @@ def predict():
 
         # Preprocess the image (Replace preprocess_image with your actual preprocessing logic)
         img_tensor = preprocess_image(img)
-        print(img_tensor)
+        # print(img_tensor)
 
         # Make prediction (Replace predict_expression with your actual prediction logic)
         prediction_string = predict_expression(img_tensor)
@@ -73,5 +69,5 @@ def predict():
         return jsonify({'error': str(e)})
         
 
-# if __name__ == '__main__':
-#     app.run(port=5069)
+if __name__ == '__main__':
+    app.run(port=5069)
