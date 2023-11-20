@@ -67,8 +67,8 @@ def for_test(x_t):
 	encoder = encoder.cuda()
 	attn_decoder1 = attn_decoder1.cuda()
 
-	encoder.load_state_dict(torch.load(current_directory/'encoder_lr0.00001_GN_te1_d05_SGD_bs6_mask_conv_bn_b_xavier.pkl'))
-	attn_decoder1.load_state_dict(torch.load(current_directory/'attn_decoder_lr0.00001_GN_te1_d05_SGD_bs6_mask_conv_bn_b_xavier.pkl'))
+	encoder.load_state_dict(torch.load(current_directory/'model/encoder_lr0.00001_GN_te1_d05_SGD_bs6_mask_conv_bn_b_xavier.pkl'))
+	attn_decoder1.load_state_dict(torch.load(current_directory/'model/attn_decoder_lr0.00001_GN_te1_d05_SGD_bs6_mask_conv_bn_b_xavier.pkl'))
 
 	encoder.eval()
 	attn_decoder1.eval()
